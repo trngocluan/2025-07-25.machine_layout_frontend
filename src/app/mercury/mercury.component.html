@@ -1,9 +1,24 @@
 <!-- Layout Mercury -->
-<div class="relative w-full h-full overflow-hidden bg-gray-200">
+<div class="relative w-full h-full overflow-auto bg-gray-200">
 
   <!-- ✅ Nền là ảnh SVG -->
   <!-- Hình nền layout (dán trực tiếp nội dung SVG vào đây) -->
   <!-- viewBox="0 0 1024 768" -->
+<div class="flex justify-between items-center mb-2">
+  <h2 class="text-lg font-bold">🏭 Mercury Layout</h2>
+
+  <div class="flex items-center gap-4">
+      <label class="flex items-center cursor-pointer">
+        <input
+          type="checkbox"
+          class="form-checkbox w-5 h-5 text-blue-600"
+          [(ngModel)]="editMode"
+        />
+        <span class="ml-2">Chế độ chỉnh sửa</span>
+      </label>
+    </div>
+  </div>
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
   class="w-full h-full pointer-events-none"

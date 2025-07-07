@@ -6,18 +6,19 @@ import { MachineService } from '../services/machine.service';     // 🔁 Import
 import { Machine } from '../models/machine.model';                // 📦 Import kiểu dữ liệu máy
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-mercury',
   standalone: true,
-  imports: [CommonModule, HttpClientModule], // ✅ thêm CommonModule
+  imports: [CommonModule, HttpClientModule, FormsModule], // ✅ thêm CommonModule
   templateUrl: './mercury.component.html',
   styleUrls: ['./mercury.component.scss']
 })
 export class MercuryComponent implements OnInit {
   // 🧠 Mảng lưu danh sách máy được lấy từ API
   machines: Machine[] = [];
-
+  editMode: boolean = false; // ✅ Biến bật/tắt chế độ chỉnh sửa
   constructor(private machineService: MachineService) {}
 
   ngOnInit(): void {
@@ -42,5 +43,9 @@ export class MercuryComponent implements OnInit {
       case 2: return '#d50000';    // ERROR: đỏ
       default: return '#9e9e9e';   // Trạng thái không xác định: xám nhạt
     }
+  }
+  // ✅ Hàm đổi trạng thái chỉnh sửa
+  toggleEditMode(): void {
+    this.editMode = !this.editMode;
   }
 }
