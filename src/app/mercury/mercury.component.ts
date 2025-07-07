@@ -33,6 +33,9 @@ export class MercuryComponent implements OnInit {
         console.error('Lỗi khi lấy dữ liệu máy:', err);
       }
     });
+    // 🧱 Tạo mảng tọa độ để vẽ lưới (cách 50px/lưới)
+    this.gridX = Array.from({ length: this.svgWidth / 50 }, (_, i) => i * 50);
+    this.gridY = Array.from({ length: this.svgHeight / 50 }, (_, i) => i * 50);
   }
 
   // 🎨 Hàm trả về màu tương ứng với trạng thái máy (status)
@@ -48,4 +51,11 @@ export class MercuryComponent implements OnInit {
   toggleEditMode(): void {
     this.editMode = !this.editMode;
   }
+  // Kích thước SVG layout (phù hợp với viewBox của mercury-layout.svg)
+  svgWidth = 1920;
+  svgHeight = 1200;
+
+  // 🧱 Tạo mảng tọa độ để vẽ lưới (cách 50px/lưới)
+  gridX: number[] = [];
+  gridY: number[] = [];
 }
