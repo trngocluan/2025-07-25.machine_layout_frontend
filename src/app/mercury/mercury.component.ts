@@ -41,9 +41,9 @@ export class MercuryComponent implements OnInit {
   // 🎨 Hàm trả về màu tương ứng với trạng thái máy (status)
   getStatusColor(status: number): string {
     switch (status) {
-      case 0: return '#ccc';       // STOP: xám
+      case 2: return '#ccc';       // ERROR: đỏ nhạt
       case 1: return '#00c853';    // RUNNING: xanh lá
-      case 2: return '#e57373';    // ERROR: đỏ nhạt
+      case 0: return '#e57373';    // STOP: xám
       default: return '#9e9e9e';   // Trạng thái không xác định: xám nhạt
     }
   }
