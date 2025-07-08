@@ -1,7 +1,7 @@
 // src/app/mercury/mercury.component.ts
 // 📄 Đây là component dùng để hiển thị layout nhà máy Mercury và vị trí các máy trên layout
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';     // ⚠️ Nhớ thêm OnDestroy
 import { MachineService } from '../services/machine.service';     // 🔁 Import service để gọi API
 import { Machine } from '../models/machine.model';                // 📦 Import kiểu dữ liệu máy
 import { HttpClientModule } from '@angular/common/http';
@@ -15,24 +15,17 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './mercury.component.html',
   styleUrls: ['./mercury.component.scss']
 })
-export class MercuryComponent implements OnInit {
+export class MercuryComponent implements OnInit, OnDestroy {
   // 🧠 Mảng lưu danh sách máy được lấy từ API
   machines: Machine[] = [];
   editMode: boolean = false; // ✅ Biến bật/tắt chế độ chỉnh sửa
   constructor(private machineService: MachineService) {}
 
   ngOnInit(): void {
+
     // 📥 Gọi API khi component khởi tạo
-    this.machineService.getMachines().subscribe({
-      next: data => {
-        // ✅ Khi gọi API thành công, lưu dữ liệu vào biến machines
-        this.machines = data;
-      },
-      error: err => {
-        // ❌ Nếu có lỗi khi gọi API, hiển thị trong console
-        console.error('Lỗi khi lấy dữ liệu máy:', err);
-      }
-    });
+    this.fetchMachines();
+
     // 🧱 Tạo mảng tọa độ để vẽ lưới (cách 50px/lưới)
     this.gridX = Array.from({ length: this.svgWidth / 50 }, (_, i) => i * 50);
     this.gridY = Array.from({ length: this.svgHeight / 50 }, (_, i) => i * 50);
@@ -42,6 +35,11 @@ export class MercuryComponent implements OnInit {
     if (svgContainer) {
       svgContainer.addEventListener('wheel', this.onWheel.bind(this));
     }
+
+    // ✅ Tự động gọi lại API lấy dữ liệu mỗi 5 giây
+    this.refreshIntervalId = setInterval(() => {
+      this.fetchMachines();
+    }, 5000);
   }
 
   // 🎨 Hàm trả về màu tương ứng với trạng thái máy (status)
@@ -84,4 +82,28 @@ export class MercuryComponent implements OnInit {
     const newZoom = this.zoomLevel + direction * this.zoomStep;
     this.zoomLevel = Math.min(this.maxZoom, Math.max(this.minZoom, newZoom));
   }
+
+  // ✅ Dọn dẹp khi component bị destroy
+  ngOnDestroy(): void {
+    if (this.refreshIntervalId) {
+      clearInterval(this.refreshIntervalId);
+    }
+  }
+
+  // ✅ Hàm gọi API lấy dữ liệu máy
+  fetchMachines(): void {
+    this.machineService.getMachines().subscribe({
+      next: (data) => {
+        this.machines = data;
+      },
+      error: (err) => {
+        console.error('Lỗi khi gọi API:', err);
+      },
+    });
+  }
+
+
+
+  // ✅ Biến dùng cho việc cập nhật dữ liệu tự động
+  private refreshIntervalId: any;
 }
