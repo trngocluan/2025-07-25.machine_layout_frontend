@@ -9,7 +9,8 @@ import { Observable, map } from 'rxjs';
 })
 export class MachineService {
   // ✅ Địa chỉ API để gọi lấy danh sách máy
-  private apiUrl = 'http://localhost:3000/machine-mysql';
+  //private apiUrl = 'http://localhost:3000/machine-mysql';
+  private apiUrl = 'http://localhost:3000/machine-sqlserver';
 
   constructor(private http: HttpClient) {}
 
