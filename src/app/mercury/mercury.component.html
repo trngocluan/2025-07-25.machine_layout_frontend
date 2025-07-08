@@ -32,19 +32,17 @@
         <rect
           [attr.x]="machine.x"
           [attr.y]="machine.y"
-          width="80"
-          height="40"
+          width="50"
+          height="15"
           rx="4"
           [attr.fill]="getStatusColor(machine.status)"
           stroke="black"
           stroke-width="1"
         />
         <text
-          [attr.x]="machine.x + 40"
-          [attr.y]="machine.y + 25"
-          text-anchor="middle"
-          font-size="12"
-          fill="black"
+          [attr.x]="machine.x + 25"
+          [attr.y]="machine.y + 13"
+          class="machine"
         >
           {{ machine.name }}
         </text>

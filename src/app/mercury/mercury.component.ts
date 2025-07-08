@@ -43,7 +43,7 @@ export class MercuryComponent implements OnInit {
     switch (status) {
       case 0: return '#ccc';       // STOP: xám
       case 1: return '#00c853';    // RUNNING: xanh lá
-      case 2: return '#d50000';    // ERROR: đỏ
+      case 2: return '#e57373';    // ERROR: đỏ nhạt
       default: return '#9e9e9e';   // Trạng thái không xác định: xám nhạt
     }
   }
