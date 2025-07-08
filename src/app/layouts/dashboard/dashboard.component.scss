@@ -1,0 +1,5 @@
+/* Định nghĩa class cho hover highlight */
+.link-hover {
+  @apply block px-2 py-1 rounded transition duration-200;
+  @apply hover:bg-gray-700 hover:text-yellow-300;
+}
