@@ -4,3 +4,60 @@
   font-weight: regular;
   text-anchor: middle;
 }
+
+.machine text {
+  font-size: 15px;
+  fill: black;
+  font-weight: regular;
+  text-anchor: middle;
+}
+
+.machine:hover {
+  cursor: pointer;
+  fill: #ffffff;
+}
+
+.machine:hover text {
+  cursor: pointer;
+  fill: #ff0000;
+}
+
+.machine-rect {
+  rx: 5;
+  stroke: black;
+  stroke-width: 1;
+}
+.machine-rect:hover {
+  rx: 5;
+  stroke: black;
+  stroke-width: 1;
+}
+.machine-rect.selected {
+  fill: #ffcccc;
+}
+.machine-rect.selected:hover {
+  fill: #ff9999;
+}
+
+.machine.selected {
+  fill: #ff0000;
+}
+.machine.selected text {
+  fill: #ffffff;
+}
+
+.machine.productivity {
+  fill: #00ff00;
+}
+
+.machine.productivity text {
+  fill: #ffffff;
+}
+
+.machine.counter {
+  fill: #0000ff;
+}
+
+.machine.counter text {
+  fill: #ffffff;
+}
