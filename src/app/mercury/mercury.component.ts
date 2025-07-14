@@ -27,8 +27,8 @@ export class MercuryComponent implements OnInit, OnDestroy {
     this.fetchMachines();
 
     // 🧱 Tạo mảng tọa độ để vẽ lưới (cách 50px/lưới)
-    this.gridX = Array.from({ length: this.svgWidth / 50 }, (_, i) => i * 50);
-    this.gridY = Array.from({ length: this.svgHeight / 50 }, (_, i) => i * 50);
+    this.gridX = Array.from({ length: this.svgWidth / 50 }, (_, i) => i * 100);
+    this.gridY = Array.from({ length: this.svgHeight / 50 }, (_, i) => i * 100);
 
     // 🌀 Thêm sự kiện cuộn chuột để zoom SVG
     const svgContainer = document.getElementById('svg-container');
@@ -61,8 +61,8 @@ export class MercuryComponent implements OnInit, OnDestroy {
   }
 
   // Kích thước SVG layout (phù hợp với viewBox của mercury-layout.svg)
-  svgWidth = 1920;
-  svgHeight = 1200;
+  svgWidth = 3840;
+  svgHeight = 2400;
 
   // 🧱 Tạo mảng tọa độ để vẽ lưới (cách 50px/lưới)
   gridX: number[] = [];

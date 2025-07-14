@@ -1,12 +1,12 @@
 .machine {
-  font-size: 15px;
+  font-size: 34px;
   fill: black;
   font-weight: regular;
   text-anchor: middle;
 }
 
 .machine text {
-  font-size: 15px;
+  font-size: 34px;
   fill: black;
   font-weight: regular;
   text-anchor: middle;
@@ -23,14 +23,14 @@
 }
 
 .machine-rect {
-  rx: 5;
+  rx: 10;
   stroke: black;
-  stroke-width: 1;
+  stroke-width: 3;
 }
 .machine-rect:hover {
-  rx: 5;
+  rx: 10;
   stroke: black;
-  stroke-width: 1;
+  stroke-width: 3;
 }
 .machine-rect.selected {
   fill: #ffcccc;
