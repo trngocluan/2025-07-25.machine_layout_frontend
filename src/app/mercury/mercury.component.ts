@@ -46,8 +46,8 @@ export class MercuryComponent implements OnInit, OnDestroy {
   getStatusColor(status: number): string {
     switch (status) {
       case 2: return '#ccc';       // ERROR: xám
-      case 1: return '#00c853';    // RUNNING: xanh lá
-      case 0: return '#e57373';    // STOP: đỏ nhạt
+      case 1: return '#92D050';    // RUNNING: xanh lá
+      case 0: return '#FF6969';    // STOP: đỏ nhạt
       case 3: return '#ff9800';    // MAINTENANCE: cam
       case 4: return '#2196f3';    // IDLE: xanh dương
       case 5: return '#9c27b0';    // WARNING: tím
