@@ -5,13 +5,6 @@
   text-anchor: middle;
 }
 
-.machine text {
-  font-size: 34px;
-  fill: black;
-  font-weight: regular;
-  text-anchor: middle;
-}
-
 .machine:hover {
   cursor: pointer;
   fill: #ffffff;
@@ -25,18 +18,29 @@
 .machine-rect {
   rx: 10;
   stroke: black;
-  stroke-width: 3;
+  stroke-width: 2;
 }
 .machine-rect:hover {
   rx: 10;
   stroke: black;
-  stroke-width: 3;
+  stroke-width: 2;
 }
 .machine-rect.selected {
   fill: #ffcccc;
 }
 .machine-rect.selected:hover {
   fill: #ff9999;
+}
+
+.machine-circle {
+  r: 50;
+  stroke: black;
+  stroke-width: 3;
+}
+
+.machine-circle:hover {
+  stroke: black;
+  stroke-width: 3;
 }
 
 .machine.selected {
@@ -59,5 +63,36 @@
 }
 
 .machine.counter text {
+  fill: #ffffff;
+}
+
+.performance {
+  font-size: 40px;
+  fill: black;
+  font-weight: regular;
+  text-anchor: middle;
+}
+
+.performance:hover {
+  cursor: pointer;
+  fill: #ffffff;
+}
+
+.machine-ellipse {
+  rx: 70;
+  ry: 40;
+  stroke: black;
+  stroke-width: 0;
+}
+
+.performance-text {
+  font-size: 40px;
+  fill: black;
+  font-weight: regular;
+  text-anchor: middle;
+}
+
+.performance-text:hover {
+  cursor: pointer;
   fill: #ffffff;
 }

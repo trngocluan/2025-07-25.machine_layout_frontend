@@ -106,4 +106,22 @@ export class MercuryComponent implements OnInit, OnDestroy {
 
   // ✅ Biến dùng cho việc cập nhật dữ liệu tự động
   private refreshIntervalId: any;
+
+  // ✅ Hàm để lọc máy theo loại (machine_type)
+  get machinesTypeNot40() {
+  return this.machines.filter(m => m.machine_type !== 40);
+  }
+
+  get machinesType40() {
+    return this.machines.filter(m => m.machine_type === 40);
+  }
+
+  getPerformanceColor(performance: number | null): string {
+    if (performance == null) return '#ccc'; // màu xám nếu chưa có dữ liệu
+
+    if (performance >= 0.875) return '#2cd7f5ff'; // xanh dương nhạt (tốt)
+    if (performance >= 0.8) return '#59df5eff'; // xanh lá (tốt)
+    if (performance >= 0.6) return '#ffeb3b'; // vàng (trung bình)
+    return '#f44336'; // đỏ (thấp)
+  }
 }
