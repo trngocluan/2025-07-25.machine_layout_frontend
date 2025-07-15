@@ -9,15 +9,15 @@ import { Observable, map } from 'rxjs';
 })
 export class MachineService {
   // ✅ Địa chỉ API để gọi lấy danh sách máy
-  //private apiUrl = 'http://localhost:3000/machine-mysql';
-  private apiUrl = 'http://192.168.10.8:3000/machine-performance?factory=2'; //Phải đổi lại đỉa chỉ IP thay cho localhost, để client có thể truy cập được từ máy khác
+  // Phải đổi lại đỉa chỉ IP thay cho localhost, để client có thể truy cập được từ máy khác
+  private apiUrl = 'http://192.168.10.8:3000/machine?factory=2';
 
   constructor(private http: HttpClient) {}
 
   // ✅ Hàm gọi API và trả về mảng Machine
   getMachines(): Observable<Machine[]> {
     return this.http.get<any>(this.apiUrl).pipe(
-      map((res) => res.data as Machine[])
+      map((res) => res as Machine[])
     );
   }
 }
