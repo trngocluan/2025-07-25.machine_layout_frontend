@@ -8,16 +8,16 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root',
 })
 export class MachineService {
-  // ✅ Địa chỉ API để gọi lấy danh sách máy
-  // Phải đổi lại đỉa chỉ IP thay cho localhost, để client có thể truy cập được từ máy khác
-  private apiUrl = 'http://192.168.10.8:3000/machine?factory=2';
+  // Gốc API (không bao gồm query factory)
+  private baseUrl = 'http://192.168.10.8:3000/machine';
 
   constructor(private http: HttpClient) {}
 
-  // ✅ Hàm gọi API và trả về mảng Machine
-  getMachines(): Observable<Machine[]> {
-    return this.http.get<any>(this.apiUrl).pipe(
-      map((res) => res as Machine[])
-    );
-  }
+  // ✅ Hàm truyền factory ID động
+  getMachines(factory: number = 0): Observable<Machine[]> {
+  const url = `${this.baseUrl}?factory=${factory}`;
+  return this.http.get<any>(url).pipe(
+    map((res) => res as Machine[])
+  );
+}
 }

@@ -92,7 +92,8 @@ export class MercuryComponent implements OnInit, OnDestroy {
 
   // ✅ Hàm gọi API lấy dữ liệu máy
   fetchMachines(): void {
-    this.machineService.getMachines().subscribe({
+    // truyền vào tham số factory = 2 cho api lấy dữ liệu nhà máy Mercury
+    this.machineService.getMachines(2).subscribe({
       next: (data) => {
         this.machines = data;
       },
