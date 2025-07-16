@@ -13,8 +13,18 @@
         <li [class.active]="currentFactory === 'tierra'" (click)="navigateTo('tierra')">🏭 2. Tierra</li>
         <li [class.active]="currentFactory === 'jupiter'" (click)="navigateTo('jupiter')">🏭 3. Jupiter</li>
         <li [class.active]="currentFactory === 'saturn'" (click)="navigateTo('saturn')">🏭 4. Saturn</li>
+        <li>
+          <!-- Auto Switch Toggle -->
+          <div class="auto-switch-toggle">
+            <label>
+              🔄 Auto Switch
+              <input type="checkbox" [(ngModel)]="autoSwitchEnabled" (change)="onToggleAutoSwitch()" />
+            </label>
+          </div>
+        </li>
       </ul>
     </nav>
+
   </aside>
 
   <!-- Main Content -->
