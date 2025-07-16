@@ -6,12 +6,15 @@
       <img src="assets/logo.png" alt="Maruei Miyazaki Logo" class="h-10" />
     </div>
     <h2 class="font-bold mb-4">🗺️ Factory Layouts</h2>
-    <ul class="space-y-2">
-      <li><a routerLink="/mercury" class="link-hover">🏭 1. Mercury</a></li>
-      <li><a routerLink="/tierra" class="link-hover">🏭 2. Tierra</a></li>
-      <li><a routerLink="/jupiter" class="link-hover">🏭 3. Jupiter</a></li>
-      <li><a routerLink="/saturn" class="link-hover">🏭 4. Saturn</a></li>
-    </ul>
+    <!-- Navigation Menu -->
+    <nav class="factory-menu">
+      <ul>
+        <li [class.active]="currentFactory === 'mercury'" (click)="navigateTo('mercury')">🏭 1. Mercury</li>
+        <li [class.active]="currentFactory === 'tierra'" (click)="navigateTo('tierra')">🏭 2. Tierra</li>
+        <li [class.active]="currentFactory === 'jupiter'" (click)="navigateTo('jupiter')">🏭 3. Jupiter</li>
+        <li [class.active]="currentFactory === 'saturn'" (click)="navigateTo('saturn')">🏭 4. Saturn</li>
+      </ul>
+    </nav>
   </aside>
 
   <!-- Main Content -->
