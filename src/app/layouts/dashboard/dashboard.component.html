@@ -6,15 +6,27 @@
       <img src="assets/logo.png" alt="Maruei Miyazaki Logo" class="h-10" />
     </div>
     <h2 class="font-bold mb-4">🗺️ Factory Layouts</h2>
-    <!-- Navigation Menu -->
+
+    <!-- 🇻🇳 Menu điều hướng đến các nhà máy. Khi click sẽ đổi component hiển thị bên phải.
+         🇯🇵 各工場へのナビゲーションメニュー。クリックすると右側の表示が切り替わります。 -->
     <nav class="factory-menu">
       <ul>
-        <li [class.active]="currentFactory === 'mercury'" (click)="navigateTo('mercury')">🪐 Mercury (2)</li>
-        <li [class.active]="currentFactory === 'tierra'" (click)="navigateTo('tierra')">🌎 Tierra (4)</li>
-        <li [class.active]="currentFactory === 'jupiter'" (click)="navigateTo('jupiter')">🪐 Jupiter (1)</li>
-        <li [class.active]="currentFactory === 'saturn'" (click)="navigateTo('saturn')">🪐 Saturn (5)</li>
+        <li [class.active]="currentFactory === 'mercury'" (click)="navigateTo('mercury')">
+          🪐 Mercury (2)
+        </li>
+        <li [class.active]="currentFactory === 'tierra'" (click)="navigateTo('tierra')">
+          🌎 Tierra (4)
+        </li>
+        <li [class.active]="currentFactory === 'jupiter'" (click)="navigateTo('jupiter')">
+          🪐 Jupiter (1)
+        </li>
+        <li [class.active]="currentFactory === 'saturn'" (click)="navigateTo('saturn')">
+          🪐 Saturn (5)
+        </li>
         <li>
           <!-- Auto Switch Toggle -->
+          <!-- 🇻🇳 Bật/tắt chế độ tự động chuyển nhà máy sau vài giây.
+               🇯🇵 数秒ごとに工場を自動切り替えする機能のオン/オフ。 -->
           <div class="auto-switch-toggle">
             <label>
               🔄 Auto Switch
@@ -24,13 +36,13 @@
         </li>
       </ul>
     </nav>
-
   </aside>
 
   <!-- Main Content -->
   <div class="flex-1 flex flex-col">
-
     <!-- Nội dung Route -->
+    <!-- 🇻🇳 Phần này sẽ hiển thị component tương ứng với route được chọn.
+         🇯🇵 選択されたルートに対応するコンポーネントがここに表示されます。 -->
     <main class="flex-1 bg-gray-100 p-6 overflow-auto">
       <router-outlet></router-outlet>
     </main>
