@@ -56,7 +56,6 @@ npm install -g @angular/cli
 ```bash
 cd machine-layout-frontend
 npm install
-ng serve
 ```
 
 > Truy cập trình duyệt tại http://localhost:4200  
@@ -64,6 +63,42 @@ ng serve
 
 ---
 
+### Bước 3. Cài đặt Tailwind CSS / ステップ3：Tailwind CSS の導入
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```
+
+**Update `tailwind.config.js`:**
+
+```js
+module.exports = {
+  content: ["./src/**/*.{html,ts}"],
+  theme: { extend: {} },
+  plugins: [],
+}
+```
+
+**Update `src/styles.scss`:**
+
+```scss
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+---
+
+### 🧪 Chạy thử ứng dụng / ローカルサーバー起動
+
+```bash
+ng serve
+```
+
+Truy cập / アクセス: `http://localhost:4200`
+
+---
 ## 🌐 3. Chức năng chính | 主な機能
 
 | Tính năng (VI)                                | 機能 (JA)                                   |
@@ -114,8 +149,6 @@ Trong đó:
 
 ---
 
-
-//////////////////////////////////// Original Angular Readme ///////////////////////////////
 # Frontend
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
