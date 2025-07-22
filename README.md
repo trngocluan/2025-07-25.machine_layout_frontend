@@ -4,6 +4,7 @@
 
 **工場内の機械の状態と稼働率を可視化するシステムのフロントエンド**
 
+![alt text](src/assets/demo.png)
 ---
 
 ## 📁 1. Cấu trúc thư mục | ディレクトリ構成
@@ -57,9 +58,6 @@ npm install -g @angular/cli
 cd machine-layout-frontend
 npm install
 ```
-
-> Truy cập trình duyệt tại http://localhost:4200  
-> ブラウザで http://localhost:4200 にアクセスしてください
 
 ---
 
