@@ -1,3 +1,15 @@
+// ==============================================================================
+// src/app/config.ts
+// 📄 config.ts - 🇻🇳 Cấu hình tổng thể cho ứng dụng Angular (ApplicationConfig)
+//               🇯🇵 Angularアプリ全体の設定ファイル（ApplicationConfig）
+//
+// ✅ 🇻🇳 File này dùng để cấu hình các provider mặc định như router, zone, HTTP…
+//         Thường được sử dụng khi bootstrap bằng `bootstrapApplication(...)`.
+//
+// ✅ 🇯🇵 このファイルでは、ルーターやゾーン検出などのプロバイダーを定義します。
+//         `bootstrapApplication(...)` の際に読み込まれます。
+// ==============================================================================
+
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 

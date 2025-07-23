@@ -1,6 +1,20 @@
+// ==============================================================================
 // src/app/mercury/mercury.component.ts
-// 📄 🇻🇳 Đây là component dùng để hiển thị layout nhà máy Mercury và vị trí các máy.
-//    🇯🇵 このコンポーネントは、Mercury工場のレイアウトと機械の位置を表示します。
+// 📄 mercury.component.ts - 🇻🇳 Component hiển thị layout nhà máy Mercury và các máy
+//                          🇯🇵 Mercury工場のレイアウトと機械を表示するコンポーネント
+//
+// ✅ 🇻🇳 File này chịu trách nhiệm:
+//       • Gọi API để lấy danh sách máy của nhà máy Mercury
+//       • Vẽ các máy lên SVG layout tương ứng với tọa độ (x, y)
+//       • Hiển thị trạng thái, hiệu suất, cho phép zoom, và chỉnh sửa vị trí
+//       • Tự động cập nhật trạng thái máy mỗi 5 giây
+//
+// ✅ 🇯🇵 このファイルの主な役割：
+//       • Mercury工場の機械データをAPIで取得
+//       • 機械をSVGレイアウト上に配置（x, y座標）
+//       • 稼働状態やパフォーマンスを表示、ズームや位置編集も対応
+//       • 5秒ごとに状態を自動更新
+// ==============================================================================
 
 import { Component, OnInit, OnDestroy } from '@angular/core';     // ⚠️ Nhớ thêm OnDestroy
 import { MachineService } from '../services/machine.service';     // 🔁 Import service để gọi API

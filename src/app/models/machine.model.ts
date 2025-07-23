@@ -1,4 +1,15 @@
+// ==============================================================================
 // src/app/models/machine.model.ts
+// 📄 machine.model.ts - 🇻🇳 Interface định nghĩa cấu trúc dữ liệu máy trong ứng dụng
+//                      🇯🇵 アプリ内で使用される機械データのインターフェース定義
+//
+// ✅ 🇻🇳 File này giúp định nghĩa các thuộc tính dữ liệu của từng máy,
+//         được dùng trong việc hiển thị vị trí, trạng thái, hiệu suất,... trên layout.
+//
+// ✅ 🇯🇵 各機械の位置、状態、パフォーマンスなどを表示するために、
+//         必要なデータ構造を定義しています。
+// ==============================================================================
+
 
 // 🇻🇳 Đây là interface định nghĩa cấu trúc dữ liệu máy
 // 🇯🇵 このインターフェースは機械データの構造を定義します

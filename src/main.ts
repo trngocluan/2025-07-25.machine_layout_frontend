@@ -1,3 +1,19 @@
+// ==============================================================================
+// src/main.ts
+// 📄 main.ts - 🇻🇳 Điểm khởi động chính của ứng dụng Angular
+//             🇯🇵 Angularアプリケーションのエントリーポイント（起動ファイル）
+//
+// ✅ 🇻🇳 File này chịu trách nhiệm khởi động ứng dụng Angular bằng cách:
+//         1. Gắn component gốc (AppComponent) vào trang HTML
+//         2. Cấu hình routing để điều hướng giữa các trang
+//         3. Đăng ký các module cần thiết như HTTP, Form
+//
+// ✅ 🇯🇵 このファイルはAngularアプリの起動処理を担当します：
+//         1. ルートコンポーネント（AppComponent）をHTMLにマウントする
+//         2. 画面間のルーティングを設定する
+//         3. HTTPやフォームなど必要なモジュールを登録する
+// ==============================================================================
+
 import { bootstrapApplication } from '@angular/platform-browser';
 import { importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';

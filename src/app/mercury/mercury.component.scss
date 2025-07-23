@@ -1,3 +1,15 @@
+// ==============================================================================
+// src/app/mercury/mercury.component.scss
+// 📄 mercury.component.scss - 🇻🇳 File định nghĩa style SVG layout cho nhà máy Mercury
+//                            🇯🇵 Mercury工場のレイアウトSVGに関するスタイル定義
+//
+// ✅ 🇻🇳 File này định nghĩa giao diện hiển thị máy móc (hình chữ nhật, hình tròn, ellipse),
+//         hiệu ứng khi hover, khi được chọn, và cách biểu diễn hiệu suất/sản lượng.
+//
+// ✅ 🇯🇵 このファイルでは、機械（長方形・円・楕円）の表示、
+//         ホバー・選択時のエフェクト、生産性やカウンターの表現方法をスタイルで定義します。
+// ==============================================================================
+
 .machine {
   font-size: 34px;
   fill: black;

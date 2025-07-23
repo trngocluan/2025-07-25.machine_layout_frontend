@@ -1,3 +1,15 @@
+// ==============================================================================
+// src/app/routes.ts
+// 📄 app.routes.ts - 🇻🇳 Cấu hình định tuyến (routing) cho ứng dụng Angular
+//                   🇯🇵 Angularアプリのルーティング設定ファイル
+//
+// ✅ 🇻🇳 File này định nghĩa các đường dẫn URL tương ứng với các trang (component).
+//         Khi người dùng truy cập một URL, Angular sẽ hiển thị component tương ứng.
+//
+// ✅ 🇯🇵 このファイルでは、URLパスに応じて表示されるコンポーネント（ページ）を定義します。
+//         ユーザーが特定のURLにアクセスすると、対応するページが表示されます。
+// ==============================================================================
+
 import { Routes } from '@angular/router';
 import { MercuryComponent } from './mercury/mercury.component';
 import { TierraComponent } from './tierra/tierra.component';

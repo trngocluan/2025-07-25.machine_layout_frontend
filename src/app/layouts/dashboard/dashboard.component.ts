@@ -1,3 +1,15 @@
+// ==============================================================================
+// src/app/layouts/dashboard/dashboard.component.ts
+// 📄 dashboard.component.ts - 🇻🇳 Component bố cục chính của ứng dụng (Dashboard Layout)
+//                            🇯🇵 アプリのメインレイアウトを担当するコンポーネント
+//
+// ✅ 🇻🇳 File này định nghĩa component dashboard, hiển thị sidebar điều hướng nhà máy
+//         và xử lý logic chuyển đổi giữa các nhà máy thủ công và tự động.
+//
+// ✅ 🇯🇵 このファイルでは、サイドバー付きダッシュボードを定義し、
+//         工場画面の手動および自動切替ロジックを実装します。
+// ==============================================================================
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';

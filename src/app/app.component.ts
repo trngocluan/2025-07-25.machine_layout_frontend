@@ -1,3 +1,15 @@
+// ==============================================================================
+// src/app/app.component.ts
+// 📄 app.component.ts - 🇻🇳 Component gốc của toàn bộ ứng dụng Angular (standalone)
+//                      🇯🇵 Angularアプリ全体のルートコンポーネント（スタンドアロン）
+//
+// ✅ 🇻🇳 Đây là nơi định nghĩa cấu trúc, logic, và style chung cho toàn ứng dụng.
+//         Nó sẽ được gắn vào <app-root> trong index.html.
+//
+// ✅ 🇯🇵 このファイルは、アプリ全体の構造・ロジック・スタイルを定義する中心コンポーネントです。
+//         index.html内の<app-root>にマウントされます。
+// ==============================================================================
+
 import { Component } from '@angular/core';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 

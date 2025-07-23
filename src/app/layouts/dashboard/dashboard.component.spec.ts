@@ -1,3 +1,19 @@
+// ==============================================================================
+// src/app/layouts/dashboard/dashboard.component.spec.ts
+// 📄 dashboard.component.spec.ts - 🇻🇳 File kiểm thử đơn vị (unit test) cho DashboardComponent
+//                                 🇯🇵 DashboardComponent に対するユニットテストファイル
+//
+// ✅ 🇻🇳 File này giúp đảm bảo component Dashboard được khởi tạo và hoạt động đúng.
+//         Có thể mở rộng để test tương tác như click, toggle, navigation...
+//
+// ✅ 🇯🇵 このファイルではDashboardコンポーネントが正しく生成されるかどうかを検証します。
+//         クリックやナビゲーションのテストも追加可能です。
+//
+// 💡 🇻🇳 Nếu không dùng test, bạn có thể xóa file này để đơn giản hóa dự án.
+//    🇯🇵 テストが不要な場合は、このファイルを削除しても構いません。
+// ==============================================================================
+
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DashboardComponent } from './dashboard.component';
 

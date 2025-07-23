@@ -1,4 +1,20 @@
+// ==============================================================================
 // src/app/services/machine.service.ts
+// 📄 machine.service.ts - 🇻🇳 Service gọi API để lấy dữ liệu máy từ backend
+//                        🇯🇵 バックエンドから機械情報を取得するためのサービス
+//
+// ✅ 🇻🇳 File này định nghĩa một service Angular dùng `HttpClient` để:
+//         - Gửi yêu cầu GET đến API máy
+//         - Nhận dữ liệu JSON và chuyển thành danh sách Machine[]
+//
+// ✅ 🇯🇵 このファイルでは、Angularの `HttpClient` を使って：
+//         - 機械データのAPIへGETリクエストを送信
+//         - JSONレスポンスをMachine型配列に変換して返す
+//
+// 💡 🇻🇳 Service này được dùng trong các component để hiển thị máy trên layout.
+//    🇯🇵 このサービスは、工場レイアウト上に機械を表示するために使用されます。
+// ==============================================================================
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Machine } from '../models/machine.model';
