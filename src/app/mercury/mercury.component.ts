@@ -8,12 +8,14 @@
 //       • Vẽ các máy lên SVG layout tương ứng với tọa độ (x, y)
 //       • Hiển thị trạng thái, hiệu suất, cho phép zoom, và chỉnh sửa vị trí
 //       • Tự động cập nhật trạng thái máy mỗi 5 giây
+//       • Hàm xử lý khi click vào SVG trong chế độ Edit mode, trả về tọa độ tại điểm click
 //
 // ✅ 🇯🇵 このファイルの主な役割：
 //       • Mercury工場の機械データをAPIで取得
 //       • 機械をSVGレイアウト上に配置（x, y座標）
 //       • 稼働状態やパフォーマンスを表示、ズームや位置編集も対応
 //       • 5秒ごとに状態を自動更新
+//       • 編集モードでSVGをクリックしたときの処理関数。クリック地点の座標を返す
 // ==============================================================================
 
 import { Component, OnInit, OnDestroy } from '@angular/core';     // ⚠️ Nhớ thêm OnDestroy
@@ -153,5 +155,23 @@ export class MercuryComponent implements OnInit, OnDestroy {
     if (performance >= 0.8)   return '#59df5eff';   // high
     if (performance >= 0.6)   return '#ffeb3b';     // low
                               return '#f44336';     // very low
+  }
+
+  // 📌 Hàm xử lý khi click vào SVG trong chế độ Edit mode, trả về tọa độ tại điểm click
+  // 📌 編集モードでSVGをクリックしたときの処理関数。クリック地点の座標を返す
+  onSvgClick(event: MouseEvent): void {
+    if (!this.editMode) return;
+
+    const svgElement = event.currentTarget as SVGSVGElement;
+    const pt = svgElement.createSVGPoint();
+    pt.x = event.clientX;
+    pt.y = event.clientY;
+
+    const svgP = pt.matrixTransform(svgElement.getScreenCTM()?.inverse());
+    const x = Math.round(svgP.x);
+    const y = Math.round(svgP.y);
+
+    console.log('📍 座標をクリック / Click tại tọa độ:', { x, y });
+    alert(`📍 設備の座標 / Tọa độ máy: x=${x}, y=${y}`);
   }
 }
