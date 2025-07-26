@@ -14,21 +14,17 @@
   font-size: 34px;
   fill: black;
   font-weight: regular;
-  text-anchor: middle; // 🇻🇳 Căn giữa theo trục ngang
-                       // 🇯🇵 水平方向に中央揃え
+  text-anchor: middle; // 🇻🇳 Căn giữa theo trục ngang | 🇯🇵 水平方向に中央揃え
 }
 
 .machine:hover {
-  cursor: pointer;     // 🇻🇳 Biến con trỏ chuột thành tay khi hover
-                       // 🇯🇵 ホバー時にポインタを手の形に
-  fill: #ffffff;       // 🇻🇳 Chữ đổi màu khi hover
-                       // 🇯🇵 ホバー時に文字色を変更
+  cursor: pointer;     // 🇻🇳 Biến con trỏ chuột thành tay khi hover | 🇯🇵 ホバー時にポインタを手の形に
+  fill: #ffffff;       // 🇻🇳 Chữ đổi màu khi hover | 🇯🇵 ホバー時に文字色を変更
 }
 
 .machine:hover text {
   cursor: pointer;
-  fill: #ff0000;       // 🇻🇳 Khi hover chữ sẽ đổi thành màu đỏ
-                       // 🇯🇵 ホバー時に文字を赤色に
+  fill: #ff0000;       // 🇻🇳 Khi hover chữ sẽ đổi thành màu đỏ | 🇯🇵 ホバー時に文字を赤色に
 }
 
 .machine-rect {
@@ -44,13 +40,11 @@
 }
 
 .machine-rect.selected {
-  fill: #ffcccc;       // 🇻🇳 Khi máy được chọn, đổi nền nhạt
-                       // 🇯🇵 選択時は背景が薄い赤に変わる
+  fill: #ffcccc;       // 🇻🇳 Khi máy được chọn, đổi nền nhạt | 🇯🇵 選択時は背景が薄い赤に変わる
 }
 
 .machine-rect.selected:hover {
-  fill: #ff9999;       // 🇻🇳 Hover máy đang được chọn → màu đậm hơn
-                       // 🇯🇵 選択中のホバー時は濃い赤に
+  fill: #ff9999;       // 🇻🇳 Hover máy đang được chọn → màu đậm hơn | 🇯🇵 選択中のホバー時は濃い赤に
 }
 
 .machine-circle {
@@ -73,8 +67,7 @@
 }
 
 .machine.productivity {
-  fill: #00ff00;       // 🇻🇳 Màu máy thể hiện năng suất (hiệu suất cao)
-                       // 🇯🇵 生産性を示す緑色（高効率）
+  fill: #00ff00;       // 🇻🇳 Màu máy thể hiện năng suất (hiệu suất cao) | 🇯🇵 生産性を示す緑色（高効率）
 }
 
 .machine.productivity text {
@@ -82,8 +75,7 @@
 }
 
 .machine.counter {
-  fill: #0000ff;       // 🇻🇳 Máy thể hiện sản lượng (counter)
-                       // 🇯🇵 生産数を示す青色
+  fill: #0000ff;       // 🇻🇳 Máy thể hiện sản lượng (counter) | 🇯🇵 生産数を示す青色
 }
 
 .machine.counter text {

@@ -32,6 +32,16 @@ src/app/mercury/mercury.component.html
   <div class="flex justify-between items-center mb-2">
     <h1 class="text-lg font-bold">🏭 Mercury Layout</h1>
 
+    <!-- Hiển thị phần trăm Zoom -->
+    <!-- ズーム倍率の表示 -->
+    <div class="text-sm text-gray-600">
+      Zoom: {{ (zoom * 100) | number:'1.0-0' }}%
+      <span class="ml-2 text-xs text-gray-400">
+        (Ctrl + scroll)
+        <!-- Ctrlキーを押しながらマウスホイールを回す -->
+      </span>
+    </div>
+
     <!-- 🇻🇳 Cho phép bật/tắt chế độ chỉnh sửa vị trí máy
          🇯🇵 機械の位置を編集できるモードのON/OFF切替 -->
     <div class="flex items-center justify-end mb-2">
@@ -53,6 +63,8 @@ src/app/mercury/mercury.component.html
     class="w-full h-full"
     xmlns="http://www.w3.org/2000/svg"
     (click)="onSvgClick($event)"
+    (wheel)="onWheel($event)"
+    [attr.style]="'transform: scale(' + zoom + '); transform-origin: 0 0;'"
   >
     <!-- 🇻🇳 DÁN TOÀN BỘ NỘI DUNG CỦA mercury-layout.svg VÀO ĐÂY
          🇯🇵 mercury-layout.svg の中身をここに貼り付けてください -->

@@ -28,46 +28,32 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-mercury',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule], // ✅ 🇻🇳 Import các module cần thiết
-                                                           //    🇯🇵 必要なモジュールを読み込み
+  imports: [CommonModule, HttpClientModule, FormsModule], // ✅ 🇻🇳 Import các module cần thiết | 🇯🇵 必要なモジュールを読み込み
   templateUrl: './mercury.component.html',
   styleUrls: ['./mercury.component.scss']
 })
 export class MercuryComponent implements OnInit, OnDestroy {
-  // 🧠 🇻🇳 Mảng lưu danh sách máy được lấy từ API
-  //    🇯🇵 APIから取得された機械のリスト
+  // 🧠 🇻🇳 Mảng lưu danh sách máy được lấy từ API | 🇯🇵 APIから取得された機械のリスト
   machines: Machine[] = [];
-  editMode: boolean = false; // ✅ 🇻🇳 Bật/tắt chế độ chỉnh sửa vị trí máy
-                             //    🇯🇵 位置編集モードのオン/オフ
+  editMode: boolean = false; // ✅ 🇻🇳 Bật/tắt chế độ chỉnh sửa vị trí máy | 🇯🇵 位置編集モードのオン/オフ
   constructor(private machineService: MachineService) {}
 
   ngOnInit(): void {
 
-    // 📥 🇻🇳 Gọi API khi component khởi tạo
-    //    🇯🇵 コンポーネント初期化時にAPIを呼び出す
+    // 📥 🇻🇳 Gọi API khi component khởi tạo | 🇯🇵 コンポーネント初期化時にAPIを呼び出す
     this.fetchMachines();
 
-    // 🧱 🇻🇳 Tạo mảng tọa độ để hiển thị lưới layout (cách 100px)
-    //    🇯🇵 レイアウトのグリッド座標（100px間隔）を生成
+    // 🧱 🇻🇳 Tạo mảng tọa độ để hiển thị lưới layout (cách 100px) | 🇯🇵 レイアウトのグリッド座標（100px間隔）を生成
     this.gridX = Array.from({ length: this.svgWidth / 50 }, (_, i) => i * 100);
     this.gridY = Array.from({ length: this.svgHeight / 50 }, (_, i) => i * 100);
 
-    // 🌀 🇻🇳 Gắn sự kiện cuộn chuột để zoom SVG
-    //    🇯🇵 マウスホイールでSVGをズームするイベントを追加
-    const svgContainer = document.getElementById('svg-container');
-    if (svgContainer) {
-      svgContainer.addEventListener('wheel', this.onWheel.bind(this));
-    }
-
-    // ✅ 🇻🇳 Tự động gọi lại API mỗi 5 giây để cập nhật trạng thái máy
-    //    🇯🇵 機械の状態を定期的（5秒ごと）に更新
+    // ✅ 🇻🇳 Tự động gọi lại API mỗi 5 giây để cập nhật trạng thái máy | 🇯🇵 機械の状態を定期的（5秒ごと）に更新
     this.refreshIntervalId = setInterval(() => {
       this.fetchMachines();
     }, 5000);
   }
 
-  // 🎨 🇻🇳 Hàm trả về màu tương ứng với trạng thái máy
-  //    🇯🇵 機械の状態に応じた色を返す関数
+  // 🎨 🇻🇳 Hàm trả về màu tương ứng với trạng thái máy | 🇯🇵 機械の状態に応じた色を返す関数
   getStatusColor(status: number): string {
     switch (status) {
       case 2:   return '#ccc';          // ❌ ERROR: xám - エラー
@@ -80,8 +66,7 @@ export class MercuryComponent implements OnInit, OnDestroy {
     }
   }
 
-  // ✅ 🇻🇳 Bật/tắt trạng thái chỉnh sửa
-  //    🇯🇵 編集モードのON/OFF切り替え
+  // ✅ 🇻🇳 Bật/tắt trạng thái chỉnh sửa | 🇯🇵 編集モードのON/OFF切り替え
   toggleEditMode(): void {
     this.editMode = !this.editMode;
   }
@@ -95,33 +80,33 @@ export class MercuryComponent implements OnInit, OnDestroy {
   gridY: number[] = [];
 
   // 🔍 Zoom config
-  zoomEnabled = true; // ON-OFF zoom
-  zoomLevel = 1;
-  minZoom = 0.3;
-  maxZoom = 3;
-  zoomStep = 0.1;
+  zoom: number = 1; // 🔍 Mức zoom ban đầu (1 = 100%) | 初期ズーム倍率（1 = 100%）
 
-  // 🌀 🇻🇳 Hàm xử lý sự kiện cuộn chuột để zoom
-  //    🇯🇵 マウスホイールでズームイン/アウトする処理
-  onWheel(event: WheelEvent) {
-    event.preventDefault();
-    const direction = event.deltaY < 0 ? 1 : -1;
-    const newZoom = this.zoomLevel + direction * this.zoomStep;
-    this.zoomLevel = Math.min(this.maxZoom, Math.max(this.minZoom, newZoom));
+// 📌 Xử lý sự kiện lăn chuột, chỉ zoom nếu giữ Ctrl | マウスホイールイベント処理（Ctrlキーを押している場合のみズーム）
+onWheel(event: WheelEvent): void {
+  if (!event.ctrlKey) return; // ⛔ Bỏ qua nếu không giữ Ctrl | Ctrlキーを押していない場合は無視する
+  event.preventDefault(); // ✅ Ngăn cuộn trang mặc định của trình duyệt | ブラウザのデフォルトスクロールを無効にする
+  const zoomStep = 0.1; // 🔧 Mỗi lần cuộn thay đổi 10% | ズーム倍率の増減ステップ（10%）
+  if (event.deltaY < 0) {
+    // 🔼 Cuộn lên → phóng to | 上方向スクロール → ズームイン
+    this.zoom = Math.min(this.zoom + zoomStep, 5); // Tối đa 500% | 最大500%
+  } else {
+    // 🔽 Cuộn xuống → thu nhỏ | 下方向スクロール → ズームアウト
+    this.zoom = Math.max(this.zoom - zoomStep, 1); // Tối thiểu 100% | 最小100%
   }
+}
 
-  // 🧹 🇻🇳 Dọn dẹp khi component bị hủy (ngOnDestroy)
-  //    🇯🇵 コンポーネントが破棄されるときに実行される処理
+  // 🧹 🇻🇳 Dọn dẹp khi component bị hủy (ngOnDestroy) | 🇯🇵 コンポーネントが破棄されるときに実行される処理
   ngOnDestroy(): void {
     if (this.refreshIntervalId) {
       clearInterval(this.refreshIntervalId);
     }
   }
 
-  // 📥 🇻🇳 Hàm gọi API để lấy danh sách máy
-  //    🇯🇵 機械のリストを取得するためのAPI呼び出し関数
+  // 📥 🇻🇳 Hàm gọi API để lấy danh sách máy | 🇯🇵 機械のリストを取得するためのAPI呼び出し関数
   fetchMachines(): void {
     // truyền vào tham số factory = 2 cho api lấy dữ liệu nhà máy Mercury
+    // APIにパラメータ factory = 2 を渡して、Mercury工場のデータを取得する
     this.machineService.getMachines(2).subscribe({
       next: (data) => {
         this.machines = data;
@@ -134,11 +119,10 @@ export class MercuryComponent implements OnInit, OnDestroy {
 
 
 
-  // ✅ Biến dùng cho việc cập nhật dữ liệu tự động
+  // ✅ Biến dùng cho việc cập nhật dữ liệu tự động | データを自動更新するための変数
   private refreshIntervalId: any;
 
-  // 🇻🇳 Phân loại máy dựa theo machine_type để xử lý riêng
-  // 🇯🇵 機械タイプによって処理を分けるためのgetter
+  // 🇻🇳 Phân loại máy dựa theo machine_type để xử lý riêng | 🇯🇵 機械タイプによって処理を分けるためのgetter
   get machinesTypeNot40() {
   return this.machines.filter(m => m.machine_type !== 40);
   }
@@ -147,8 +131,7 @@ export class MercuryComponent implements OnInit, OnDestroy {
     return this.machines.filter(m => m.machine_type === 40);
   }
 
-  // 💡 🇻🇳 Trả về màu tương ứng với hiệu suất máy (performance)
-  //    🇯🇵 機械のパフォーマンス値に応じた色を返す
+  // 💡 🇻🇳 Trả về màu tương ứng với hiệu suất máy (performance) | 🇯🇵 機械のパフォーマンス値に応じた色を返す
   getPerformanceColor(performance: number | null): string {
     if (performance == null)  return '#ccc';          // ❓ no data
     if (performance >= 0.875) return '#2cd7f5ff';   // very high
