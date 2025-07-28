@@ -50,7 +50,7 @@ export class MercuryComponent implements OnInit, OnDestroy {
     // ✅ 🇻🇳 Tự động gọi lại API mỗi 5 giây để cập nhật trạng thái máy | 🇯🇵 機械の状態を定期的（5秒ごと）に更新
     this.refreshIntervalId = setInterval(() => {
       this.fetchMachines();
-    }, 5000);
+    }, 15000);
   }
 
   // 🎨 🇻🇳 Hàm trả về màu tương ứng với trạng thái máy | 🇯🇵 機械の状態に応じた色を返す関数
