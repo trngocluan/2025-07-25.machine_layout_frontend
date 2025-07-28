@@ -136,7 +136,7 @@ onWheel(event: WheelEvent): void {
     if (performance == null)  return '#ccc';          // ❓ no data
     if (performance >= 0.875) return '#2cd7f5ff';   // very high
     if (performance >= 0.8)   return '#59df5eff';   // high
-    if (performance >= 0.6)   return '#ffeb3b';     // low
+    if (performance >= 0.5)   return '#ffeb3b';     // low
                               return '#f44336';     // very low
   }
 
