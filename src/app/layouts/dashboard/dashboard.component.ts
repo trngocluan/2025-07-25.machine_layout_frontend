@@ -25,6 +25,9 @@ import { FormsModule } from '@angular/forms'; // ✅ Bắt buộc để dùng [(
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+
+  isSidebarOpen: boolean = true;           // Thêm biến quản lý đóng mở Sidebar
+
   currentFactory: string = '';             // 🇻🇳 Nhà máy hiện tại đang chọn
                                            // 🇯🇵 現在選択中の工場
   autoSwitchEnabled: boolean = false;      // 🇻🇳 Trạng thái công tắc tự động chuyển nhà máy
@@ -38,6 +41,9 @@ export class DashboardComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    // Mặc định thu gọn sidebar nếu là màn hình nhỏ
+    this.isSidebarOpen = window.innerWidth >= 768; // md breakpoint của Tailwind = 768px
+
     // 🇻🇳 Gán route hiện tại để highlight menu
     // 🇯🇵 現在のルートを取得してメニューにハイライトを設定
     this.router.events.subscribe(event => {
@@ -54,6 +60,11 @@ export class DashboardComponent implements OnInit {
       this.autoSwitchEnabled = true;
       this.startAutoSwitch();
     }
+  }
+
+  // Hành động đóng mở Sidebar
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 
   // 🇻🇳 Chuyển trang khi click menu
