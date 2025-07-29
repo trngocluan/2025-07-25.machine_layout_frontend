@@ -117,8 +117,6 @@ onWheel(event: WheelEvent): void {
     });
   }
 
-
-
   // ✅ Biến dùng cho việc cập nhật dữ liệu tự động | データを自動更新するための変数
   private refreshIntervalId: any;
 
@@ -156,5 +154,45 @@ onWheel(event: WheelEvent): void {
 
     console.log('📍 座標をクリック / Click tại tọa độ:', { x, y });
     alert(`📍 設備の座標 / Tọa độ máy: x=${x}, y=${y}`);
+  }
+
+  // ✅ Biến dùng cho việc pan layout
+  // ✅ レイアウトをパン（移動）するための変数
+  isPanning: boolean = false;
+  startX: number = 0;
+  startY: number = 0;
+  panX: number = 0;
+  panY: number = 0;
+
+  // 📌 Khi nhấn chuột phải → bắt đầu pan
+  // 📌 右クリックでパン開始
+  onMouseDown(event: MouseEvent): void {
+    if (event.button === 2) { // 2 = chuột phải / 右クリック
+      this.isPanning = true;
+      this.startX = event.clientX;
+      this.startY = event.clientY;
+      event.preventDefault();
+    }
+  }
+
+  // 📌 Khi di chuyển chuột → nếu đang pan thì cập nhật tọa độ
+  // 📌 パン中にマウスを動かすと、座標を更新
+  onMouseMove(event: MouseEvent): void {
+    if (this.isPanning) {
+      const dx = event.clientX - this.startX;
+      const dy = event.clientY - this.startY;
+      this.panX += dx;
+      this.panY += dy;
+      this.startX = event.clientX;
+      this.startY = event.clientY;
+    }
+  }
+
+  // 📌 Khi nhả chuột phải → kết thúc pan
+  // 📌 マウス右ボタンを離したらパン終了
+  onMouseUp(event: MouseEvent): void {
+    if (event.button === 2) {
+      this.isPanning = false;
+    }
   }
 }
