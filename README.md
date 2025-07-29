@@ -5,6 +5,7 @@
 **工場内の機械の状態と稼働率を可視化するシステムのフロントエンド**
 
 ![alt text](src/assets/demo.png)
+![alt text](src/assets/demo_2.png)
 ---
 
 ## 📁 1. Cấu trúc thư mục | ディレクトリ構成
