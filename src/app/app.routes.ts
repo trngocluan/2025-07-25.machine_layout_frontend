@@ -13,6 +13,7 @@
 import { Routes } from '@angular/router';
 import { MercuryComponent } from './mercury/mercury.component';
 import { TierraComponent } from './tierra/tierra.component';
+import { Tierra2Component } from './tierra2/tierra2.component';
 import { JupiterComponent } from './jupiter/jupiter.component';
 import { SaturnComponent } from './saturn/saturn.component';
 
@@ -25,6 +26,7 @@ export const routes: Routes = [
 
   { path: 'mercury', component: MercuryComponent },
   { path: 'tierra', component: TierraComponent },
+  { path: 'tierra2', component: Tierra2Component },
   { path: 'jupiter', component: JupiterComponent },
   { path: 'saturn', component: SaturnComponent },
   // 🇻🇳 Các route tương ứng với từng nhà máy (component).

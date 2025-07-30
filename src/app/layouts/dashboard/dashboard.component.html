@@ -23,16 +23,19 @@ src/app/layouts/dashboard/dashboard.component.html
     <nav class="factory-menu">
       <ul>
         <li [class.active]="currentFactory === 'mercury'" (click)="navigateTo('mercury')">
-          🪐 Mercury (2)
+          🪐 Mercury
         </li>
         <li [class.active]="currentFactory === 'tierra'" (click)="navigateTo('tierra')">
-          🌎 Tierra (4)
+          🌎 Tierra
+        </li>
+        <li [class.active]="currentFactory === 'tierra2'" (click)="navigateTo('tierra2')">
+          🌎 Tierra-2
         </li>
         <li [class.active]="currentFactory === 'jupiter'" (click)="navigateTo('jupiter')">
-          🪐 Jupiter (1)
+          🪐 Jupiter
         </li>
         <li [class.active]="currentFactory === 'saturn'" (click)="navigateTo('saturn')">
-          🪐 Saturn (5)
+          🪐 Saturn
         </li>
         <li>
           <!-- Auto Switch Toggle -->

@@ -1,17 +1,17 @@
 // ==============================================================================
-// src/app/tierra/tierra.component.ts
-// 📄 tierra.component.ts - 🇻🇳 Component hiển thị layout nhà máy tierra và các máy
-//                          🇯🇵 tierra工場のレイアウトと機械を表示するコンポーネント
+// src/app/tierra2/tierra2.component.ts
+// 📄 tierra2.component.ts - 🇻🇳 Component hiển thị layout nhà máy tierra2 và các máy
+//                          🇯🇵 tierra2工場のレイアウトと機械を表示するコンポーネント
 //
 // ✅ 🇻🇳 File này chịu trách nhiệm:
-//       • Gọi API để lấy danh sách máy của nhà máy tierra
+//       • Gọi API để lấy danh sách máy của nhà máy tierra2
 //       • Vẽ các máy lên SVG layout tương ứng với tọa độ (x, y)
 //       • Hiển thị trạng thái, hiệu suất, cho phép zoom, và chỉnh sửa vị trí
 //       • Tự động cập nhật trạng thái máy mỗi 5 giây
 //       • Hàm xử lý khi click vào SVG trong chế độ Edit mode, trả về tọa độ tại điểm click
 //
 // ✅ 🇯🇵 このファイルの主な役割：
-//       • tierra工場の機械データをAPIで取得
+//       • tierra2工場の機械データをAPIで取得
 //       • 機械をSVGレイアウト上に配置（x, y座標）
 //       • 稼働状態やパフォーマンスを表示、ズームや位置編集も対応
 //       • 5秒ごとに状態を自動更新
@@ -26,13 +26,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-tierra',
+  selector: 'app-tierra2',
   standalone: true,
   imports: [CommonModule, HttpClientModule, FormsModule], // ✅ 🇻🇳 Import các module cần thiết | 🇯🇵 必要なモジュールを読み込み
-  templateUrl: './tierra.component.html',
-  styleUrls: ['./tierra.component.scss']
+  templateUrl: './tierra2.component.html',
+  styleUrls: ['./tierra2.component.scss']
 })
-export class TierraComponent implements OnInit, OnDestroy {
+export class Tierra2Component implements OnInit, OnDestroy {
   // 🧠 🇻🇳 Mảng lưu danh sách máy được lấy từ API | 🇯🇵 APIから取得された機械のリスト
   machines: Machine[] = [];
   editMode: boolean = false; // ✅ 🇻🇳 Bật/tắt chế độ chỉnh sửa vị trí máy | 🇯🇵 位置編集モードのオン/オフ
@@ -71,7 +71,7 @@ export class TierraComponent implements OnInit, OnDestroy {
     this.editMode = !this.editMode;
   }
 
-  // 📐 Kích thước SVG layout tương ứng với file tierra-layout.svg
+  // 📐 Kích thước SVG layout tương ứng với file tierra2-layout.svg
   svgWidth = 3840;
   svgHeight = 2400;
 
@@ -105,9 +105,9 @@ onWheel(event: WheelEvent): void {
 
   // 📥 🇻🇳 Hàm gọi API để lấy danh sách máy | 🇯🇵 機械のリストを取得するためのAPI呼び出し関数
   fetchMachines(): void {
-    // truyền vào tham số factory = 4 cho api lấy dữ liệu nhà máy tierra
-    // APIにパラメータ factory = 4 を渡して、tierra工場のデータを取得する
-    this.machineService.getMachines(4).subscribe({
+    // truyền vào tham số factory = 6 cho api lấy dữ liệu nhà máy tierra2
+    // APIにパラメータ factory = 6 を渡して、tierra2工場のデータを取得する
+    this.machineService.getMachines(6).subscribe({
       next: (data) => {
         this.machines = data;
       },

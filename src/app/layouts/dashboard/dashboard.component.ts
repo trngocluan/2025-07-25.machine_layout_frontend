@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
                                            // 🇯🇵 自動切替機能のオン/オフ状態
   private autoSwitchInterval: any;         // 🇻🇳 Biến lưu ID của interval
                                            // 🇯🇵 setIntervalのIDを格納する変数
-  private factoryList: string[] = ['mercury', 'tierra', 'jupiter', 'saturn'];
+  private factoryList: string[] = ['mercury', 'tierra', 'tierra2', 'jupiter', 'saturn'];
   // 🇻🇳 Danh sách các nhà máy có thể luân chuyển
   // 🇯🇵 自動切替で巡回する工場のリスト
 
